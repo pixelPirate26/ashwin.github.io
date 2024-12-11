@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Playfair+Display:wght@400;700&family=League+Spartan:wght@300;500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
 :root {
-    --primary-color: #6bd16d;
+    --primary-color: #70d172;
     --secondary-color: #bbdebd;
     --text-light: #f4f4f4;
     --bg-dark: #121212;
@@ -75,6 +75,9 @@ body {
     height: 100%;
     z-index: 1;
     background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
     opacity: 0.75;
 }
 
@@ -209,13 +212,16 @@ body {
 }
 
 .paper-link:hover {
-    background-color: rgba(114, 182, 116, 0.2);
+    background-color: rgba(118, 170, 118, 0.281);
 }
 
-/* Photography Section */
 .photography-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: 1fr;  /* Change to single column */
+    max-width: 500px;  /* Optional: limit max width */
+    margin: 0 auto;    /* Center the grid horizontally */
     gap: 20px;
 }
 
@@ -224,15 +230,19 @@ body {
     border: 1px solid var(--primary-color);
     padding: 20px;
     text-align: center;
+    justify-content: center;
     border-radius: 10px;
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 0.7s forwards;
     animation-delay: 0.7s;
+    width: 100%;  /* Ensure it takes full width of the grid */
+    max-width: 400px;  /* Optional: limit max width */
+    margin: 0 auto;  /* Center the card */
 }
 
 .instagram-embed:hover {
-    transform: scale(2.05);
+    transform: scale(1.05);  /* Adjusted scale for better usability */
 }
 
 /* Contact Icons */

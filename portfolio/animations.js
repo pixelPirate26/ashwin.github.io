@@ -8,13 +8,31 @@ particlesJS('particles-js', {
             "stroke": { "width": 0.7, "color": "#bbdebd" },
             "polygon": { "nb_sides": 12 }
         },
-        "opacity": { "value": 0.5, "random": true },
-        "size": { "value": 2.8, "random": true },
+        "opacity": { 
+            "value": 0.5, 
+            "random": true,
+            "anim": {
+                "enable": false,
+                "speed": 0.2,
+                "opacity_min": 0,
+                "sync": false
+            } 
+        },
+        "size": { 
+            "value": 2.8, 
+            "random": true, 
+            "anim": {
+                "enable": false,
+                "speed": 40,
+                "size_min": 0.1,
+                "sync": false
+            }
+        },
         "line_linked": {
             "enable": true,
             "distance": 200,
             "color": "#4caf50",
-            "opacity": 0.6,
+            "opacity": 0.4,
             "width": 1
         },
         "move": {
@@ -23,23 +41,58 @@ particlesJS('particles-js', {
             "direction": "none",
             "random": false,
             "straight": false,
-            "out_mode": "out"
+            "out_mode": "out",
+            "bounce": false,
+            "attract": {
+                "enable": true,
+                "rotateX": 600,
+                "rotateY": 1200
+            }
         }
     },
     "interactivity": {
-        "detect_on": "canvas",
+        "detect_on": "window", // Change from "canvas" to "window"
         "events": {
-            "onhover": { "enable": true, "mode": "bubble" },
-            "onclick": { "enable": true, "mode": "repulse" },
+            "onhover": { 
+                "enable": true, 
+                "mode": "bubble" 
+            },
+            "onclick": { 
+                "enable": true, 
+                "mode": "repulse" 
+            },
             "resize": true
         },
         "modes": {
-            "bubble": { "distance": 400, "size": 36, "duration": 2, "opacity": 0.5 },
-            "repulse": { "distance": 250, "duration": 0.4 }
+            "bubble": { 
+                "distance": 400, 
+                "size": 36, 
+                "duration": 2, 
+                "opacity": 0.5 
+            },
+            "repulse": { 
+                "distance": 250, 
+                "duration": 0.4 
+            }
         }
     },
     "retina_detect": true
 });
+
+// Additional CSS to ensure full page coverage
+const particlesStyle = document.createElement('style');
+particlesStyle.textContent = `
+    #particles-js {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        pointer-events: none; /* Allows interaction with content underneath */
+    }
+`;
+document.head.appendChild(particlesStyle);
 
 document.addEventListener('DOMContentLoaded', () => {
     const observerOptions = {
